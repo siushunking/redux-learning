@@ -1,7 +1,8 @@
 # redux-learning
 自從用完redux去開發react之後，發現真的十分方便，所以在此記錄一下redux用法，後面是關於reduxjs/toolkit，他能解決redux的一些問題，讓開發人員更好開發。
 
-# branch react-redux 才是使用react-redux，main branch 只是javascript
+# branch react-redux 才是使用react-redux，
+# main branch 是使用javascript redux
 
 # redux 的好處
 Redux是一個全域的資料管理工具，類似是全域變數，但他是管理整個react中的state，因此components可以直接從 Redux 取得state，不用再透過lifting state。而且在components管理state
