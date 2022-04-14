@@ -25,5 +25,3 @@ const counterSubscriber = () => {
 }
 
 store.subscribe(counterSubscriber)
-
-store.dispatch
