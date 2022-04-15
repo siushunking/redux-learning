@@ -151,6 +151,8 @@ const Counter = () => {
 
 # slice
 
+以toolkit實作購物者
+
 1.建立 slice
 ```
 import { createSlice, configureStore } from '@reduxjs/toolkit';
@@ -227,6 +229,10 @@ function App() {
 }
 
 export default App;
-
 ```
+顯示購物車
+<img width="992" alt="螢幕截圖 2022-04-15 下午7 50 17" src="https://user-images.githubusercontent.com/85872659/163567467-5d2609be-c161-40d0-bc79-f317022a4f35.png">
+收起購物車
+<img width="1051" alt="螢幕截圖 2022-04-15 下午7 50 09" src="https://user-images.githubusercontent.com/85872659/163567470-361cd4e0-86de-4f15-a4f2-1684a153d25d.png">
+
 
