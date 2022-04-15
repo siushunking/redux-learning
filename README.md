@@ -147,3 +147,86 @@ const Counter = () => {
   };
 ```
 
+
+
+# slice
+
+1.建立 slice
+```
+import { createSlice, configureStore } from '@reduxjs/toolkit';
+
+const uiSlice = createSlice({
+    name: 'ui',
+    initialState: {cartIsVisible: false},
+    reducers: {
+        toggle(state) {
+            state.cartIsVisible = !state.cartIsVisible;
+        }
+    }
+})
+
+export const uiActions = uiSlice.actions;
+
+export default uiSlice;
+
+```
+2.  匯出slice
+```
+import { configureStore } from "@reduxjs/toolkit";
+
+import uiSlice from "./ui-slice";
+
+const store = configureStore({
+    reducer: { ui: uiSlice.reducer}
+})
+
+export default store;
+```
+
+3. 建立組件和store 連接
+```
+import { useDispatch } from 'react-redux';
+import { uiActions } from '../../store/ui-slice';
+import classes from './CartButton.module.css';
+
+const CartButton = (props) => {
+  const dispatch = useDispatch()
+  const toggleCartHandler = () =>{
+    dispatch(uiActions.toggle())
+  }
+
+  return (
+    <button className={classes.button}  onClick={toggleCartHandler}>
+      <span>My Cart</span>
+      <span className={classes.badge}>1</span>
+    </button>
+  );
+};
+
+export default CartButton;
+```
+
+4. 在app 動作
+```
+import Cart from './components/Cart/Cart';
+import Layout from './components/Layout/Layout';
+import Products from './components/Shop/Products';
+import { useSelector } from 'react-redux'
+
+
+function App() {
+  const showCart = useSelector(state =>  
+    state.ui.cartIsVisible
+  )
+  return (
+    <Layout>
+      {showCart && <Cart />}
+      <Products />
+    </Layout>
+  );
+}
+
+export default App;
+
+```
+
